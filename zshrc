@@ -106,3 +106,7 @@ source $ZSH/oh-my-zsh.sh
 export https_proxy="http://127.0.0.1:9981"
 # nix package manager
 if [ -e /home/weland/.nix-profile/etc/profile.d/nix.sh ]; then . /home/weland/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# some aliases
+alias cl="clear"
+alias ne="neofetch"
+alias sy="systemctl"
