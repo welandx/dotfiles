@@ -8,7 +8,7 @@ export ZSH="/home/weland/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="mikeh"
+ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 #
-
+neofetch
 # http_proxy
 export https_proxy="http://127.0.0.1:9981"
 # nix package manager
@@ -110,3 +110,6 @@ if [ -e /home/weland/.nix-profile/etc/profile.d/nix.sh ]; then . /home/weland/.n
 alias cl="clear"
 alias ne="neofetch"
 alias sy="systemctl"
+alias nv="nvim"
+alias ra="ranger"
+
