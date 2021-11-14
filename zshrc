@@ -105,7 +105,7 @@ neofetch
 
 # http_proxy
 export https_proxy="http://127.0.0.1:9981"
-export GOPATH=/home/weland/
+
 # nix package manager
 if [ -e /home/weland/.nix-profile/etc/profile.d/nix.sh ]; then . /home/weland/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
