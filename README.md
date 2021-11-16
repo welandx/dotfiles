@@ -2,6 +2,7 @@
 
 > weland's config files
 
+[中文版](./README_cn.md)
 
 <!-- TOC GFM -->
 
