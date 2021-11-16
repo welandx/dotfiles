@@ -10,6 +10,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'mg979/vim-xtabline'
 Plug 'preservim/nerdtree'
 Plug 'welandx/eleline.vim'
+" markdown enhance
+Plug 'mzlogin/vim-markdown-toc'
 call plug#end()
 
 "-----------------------
@@ -33,6 +35,7 @@ inoremap { {}<esc>:let leavechar="}"<cr>i
 "inoremap  {<esc>o}<esc>:let leavechar="}"<cr>O
 inoremap ' ''<esc>:let leavechar="'"<cr>i
 inoremap " ""<esc>:let leavechar='"'<cr>i
+inoremap ` ``<esc>:let leavechar="`"<cr>i
 "inoremap <leader>1 ()<esc>:let leavechar=")"<cr>i
 "inoremap <leader>2 []<esc>:let leavechar="]"<cr>i
 "inoremap <leader>3 {}<esc>:let leavechar="}"<cr>i
@@ -97,7 +100,10 @@ let g:indentLine_enabled = 1
 let g:indent_guides_guide_size            = 1  " 指定对齐线的尺寸
 let g:indent_guides_start_level           = 2  " 从第二层开始可视化显示缩进
 
+" vim-markdown-toc"
+" Type ":Gen" then tab, you'll see some options
 
+" other things"
 set nu              " 显示行号
 set incsearch       " 增量式搜索
 set hlsearch        " 搜索时，高亮显示匹配结果。
