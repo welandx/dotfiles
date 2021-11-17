@@ -26,10 +26,6 @@ let mapleader=","
 " quit and save
 nnoremap Q :q<CR> 
 nnoremap S :w<CR>
-" cursor move: jump to end of line
-nnoremap <leader>e $ 
-nnoremap <leader>j 9j 
-nnoremap <leader>k 9k 
 " v-block-mode for windows terminal
 " nnoremap <leader>v 
 
