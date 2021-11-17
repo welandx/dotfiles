@@ -115,4 +115,4 @@ alias ne="neofetch"
 alias sy="systemctl"
 alias nv="nvim"
 alias ra="ranger"
-
+alias lg="lazygit"

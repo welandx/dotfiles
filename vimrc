@@ -53,9 +53,9 @@ inoremap ` ``<esc>:let leavechar="`"<cr>i
 "---plugconfig----------
 "-----------------------
 
-" vim-auto-popmenu
+
 " enable this plugin for filetypes, '*' for all files.
-"let g:apc_enable_ft = {'*':1}
+" let g:apc_enable_ft = {'*':1}
 let g:apc_enable_ft = {'text':1, 'markdown':1, 'php':1}
 
 " source for dictionary, current or other loaded buffers, see ':help cpt'
