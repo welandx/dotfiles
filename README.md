@@ -23,11 +23,11 @@
 
 ## vimrc
 
-this configfile is designed for simple text
+> this configfile is designed for simple text, for further use : [theniceboy](https://github.com/theniceboy/nvim)
 
 dependence: [vim-plug](https://github.com/junegunn/vim-plug)
 
-for vim user:
+for vim user on Unix:
 ```bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -45,4 +45,17 @@ follow are some keymaps:
 | `Q`      | exit vim |
 | `S`      | save file |
 | `C-n`    | nerdtree  |
+| `t`    | in nerdtree: open file in new tab  |
+| `<F5>`    | xtabline-mode-switch  |
+| `"nums"+<BS>`    | xtabline-tab-switch  |
 
+some vim default keymaps:
+
+for further information: [vim cheatsheet](https://vim.rtorr.com/lang/zh_cn)
+
+|Shortcut|Action|
+|--------|------|
+|`I`,`A`|insert|
+|`w`,`e`,`b`|move cursor by words|
+|`K`|show keyword help|
+|`$`,`0`|line head and end|
