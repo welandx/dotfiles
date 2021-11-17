@@ -25,6 +25,14 @@
 
 this configfile is designed for simple text
 
+dependence: [vim-plug](https://github.com/junegunn/vim-plug)
+
+for vim user:
+```bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
 - rainbow
 - auto complete based on dict and buffer
 - tab switch
@@ -35,4 +43,6 @@ follow are some keymaps:
 | Shortcut | Action   |
 |----------|----------|
 | `Q`      | exit vim |
+| `S`      | save file |
+| `C-n`    | nerdtree  |
 

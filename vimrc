@@ -2,26 +2,36 @@ call plug#begin('~/.vim/plugged')
 " normal text auto complete
 Plug 'skywind3000/vim-auto-popmenu'  
 Plug 'skywind3000/vim-dict'  
+
 " let vim seem colorful
 Plug 'luochen1990/rainbow'
 Plug 'RRethy/vim-illuminate'
 Plug 'Yggdroot/indentLine'
+Plug 'NLKNguyen/papercolor-theme'
+
 " tabline
 Plug 'mg979/vim-xtabline'
 Plug 'preservim/nerdtree'
 Plug 'welandx/eleline.vim'
+
 " markdown enhance
 Plug 'mzlogin/vim-markdown-toc'
+
 call plug#end()
 
 "-----------------------
 "---keybind-------------
 "-----------------------
-let mapleader=" "
+let mapleader=","
+" quit and save
 nnoremap Q :q<CR> 
 nnoremap S :w<CR>
-" jump to end of line
-nnoremap <leader>e $
+" cursor move: jump to end of line
+nnoremap <leader>e $ 
+nnoremap <leader>j 9j 
+nnoremap <leader>k 9k 
+" v-block-mode for windows terminal
+" nnoremap <leader>v 
 
 " nerdtree
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -113,3 +123,13 @@ set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
+" command complete
+set wildmenu
+set wildmode=longest:list,full
+" color
+set t_Co=256
+set t_ut=n
+syntax on
+set background=dark
+colorscheme PaperColor
+
