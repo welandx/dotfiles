@@ -8,7 +8,7 @@ export ZSH="/home/weland/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="blackblood"
+ZSH_THEME="dallas"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,13 +70,14 @@ ZSH_THEME="blackblood"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(z git sudo zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -100,19 +101,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# startup
-neofetch
 
-# http_proxy
-export https_proxy="http://127.0.0.1:9981"
+export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
+export https_proxy="socks5://${hostip}:7890"
+git config --global http.proxy "http://$hostip:7890"
+git config --global https.proxy "https://$hostip:7890"
 
-# nix package manager
-if [ -e /home/weland/.nix-profile/etc/profile.d/nix.sh ]; then . /home/weland/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-# some aliases
 alias cl="clear"
 alias ne="neofetch"
 alias sy="systemctl"
 alias nv="nvim"
 alias ra="ranger"
-alias lg="lazygit"
