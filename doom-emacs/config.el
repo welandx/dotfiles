@@ -63,3 +63,59 @@
                                 "--header-insertion=never"
                                 "--header-insertion-decorators=0"))
 (after! lsp-clangd (set-lsp-priority! 'clangd 2))
+
+(use-package! telega
+  :bind ("C-c t" . #'telega)
+  :init (setq telega-proxies
+	      '((:server "127.0.0.1"
+			 :port "9981"
+                         :enable t
+                         :type (:@type "proxyTypeHttp")))
+              telega-chat-show-avatars nil)
+  (setq telega-chat-fill-column 65)
+  (setq telega-emoji-use-images t)
+  ;;(setq telega-server-libs-prefix "/nix/store/8n54mnnizmzvi7b3bhv31fc3hr0fcl9i-tdlib-1.7.0/lib")
+  :config
+  (set-fontset-font t 'unicode (font-spec :family "Symbola") nil 'prepend)
+  (with-eval-after-load 'company (add-hook 'telega-chat-mode-hook (lambda ()
+                                                                    (make-local-variable 'company-backends)
+                                                                    (dolist (it '(telega-company-botcmd telega-company-emoji))
+                                                                      (push it company-backends)))))
+  (with-eval-after-load 'all-the-icons (add-to-list 'all-the-icons-mode-icon-alist '(telega-root-mode all-the-icons-fileicon "telegram"
+                                                                                                      :heigt 1.0
+                                                                                                      :v-adjust -0.2
+                                                                                                      :face all-the-icons-yellow))
+                        (add-to-list 'all-the-icons-mode-icon-alist '(telega-chat-mode all-the-icons-fileicon "telegram"
+                                                                                       :heigt 1.0
+                                                                                       :v-adjust -0.2
+                                                                                       :face all-the-icons-blue)))
+  (telega-notifications-mode t)
+  (telega-mode-line-mode 1)
+  (add-hook 'telega-chat-mode-hook
+            (lambda ()
+              (toggle-truncate-lines +1)
+              (display-line-numbers-mode -1)))
+  (add-hook 'telega-root-mode-hook
+            (lambda ()
+              (toggle-truncate-lines +1)
+              (display-line-numbers-mode -1)
+              (toggle-truncate-lines -1)))
+  (define-key telega-msg-button-map "k" nil))
+(use-package! eaf
+  :load-path "~/.emacs.d/site-lisp/emacs-application-framework") ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
+
+(use-package! eaf-browser)
+(use-package! eaf-pdf-viewer)
+
+(use-package! eaf-evil)
+(define-key key-translation-map (kbd "SPC")
+    (lambda (prompt)
+      (if (derived-mode-p 'eaf-mode)
+          (pcase eaf--buffer-app-name
+            ("browser" (string= (eaf-call-sync "call_function" eaf--buffer-id "is_focus") "True")
+                           (kbd "SPC")
+                         (kbd eaf-evil-leader-key)))
+            ("pdf-viewer" (kbd eaf-evil-leader-key))
+            ("image-viewer" (kbd eaf-evil-leader-key))
+            (_  (kbd "SPC")))
+        (kbd "SPC")))
