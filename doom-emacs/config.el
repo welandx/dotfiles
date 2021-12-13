@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-acario-light)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -54,6 +54,16 @@
 ;; they are implemented.
 
 (use-package rime
+  :init
+  (setq rime-disable-predicates
+        '(;;rime-predicate-punctuation-line-begin-p       ;; 行首的符号
+          rime-predicate-current-input-punctuation-p    ;; 所有的符号
+          rime-predicate-space-after-cc-p               ;; 中文空格之后
+          rime-predicate-tex-math-or-command-p          ;; tex
+          rime-predicate-current-uppercase-letter-p     ;; 大写字符
+          ;;rime-predicate-punctuation-after-space-cc-p   ;; 中文空格之后的符号
+          rime-predicate-after-ascii-char-p             ;; 英文之后
+          ))
   :custom
   (default-input-method "rime"))
 (setq lsp-clients-clangd-args '("-j=3"
