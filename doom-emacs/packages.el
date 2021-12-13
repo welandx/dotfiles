@@ -51,3 +51,4 @@
 
 (package! rime)
 (package! transwin)
+(package! telega)
