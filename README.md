@@ -23,7 +23,14 @@
 - some alias
 ## doom emacs
 
-- org-pomo
+1. emacs-rime: chinese input method for emacs;
+   this section def the auto en/zh switch
+2. lsp: use eglot, clangd backend for C++
+3. ui: org-mode, fonts(Sarasa), alpha-background(opacity)
+4. App: telega(tdlib proxy)
+        eaf(browser pdf rss org)
+5. org-mode: xenops(for latex) org-roam
+6. other: keyfreq
 
 ## vimrc
 

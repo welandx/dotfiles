@@ -85,6 +85,15 @@
 ;;
 ;;
 ;;;;lsp: clangd
+
+(setq lsp-clients-clangd-args '("-j=3"
+                                "--background-index"
+                                "--clang-tidy"
+                                "--completion-style=detailed"
+                                "--header-insertion=never"
+                                "--header-insertion-decorators=0"))
+(after! lsp-clangd (set-lsp-priority! 'clangd 2))
+(set-eglot-client! 'cc-mode '("clangd" "-j=3" "--clang-tidy"))
 ;;(setq lsp-clients-clangd-args '("-j=3"
 ;;                                "--background-index"
 ;;                                "--clang-tidy"
@@ -212,14 +221,6 @@
 (add-hook 'latex-mode-hook #'xenops-mode)
 (add-hook 'Latex-mode-hook #'xenops-mode)
 
-(setq lsp-clients-clangd-args '("-j=3"
-                                "--background-index"
-                                "--clang-tidy"
-                                "--completion-style=detailed"
-                                "--header-insertion=never"
-                                "--header-insertion-decorators=0"))
-(after! lsp-clangd (set-lsp-priority! 'clangd 2))
-(set-eglot-client! 'cc-mode '("clangd" "-j=3" "--clang-tidy"))
 
 (setq org-hide-emphasis-markers t)
 ;;(use-package! dirvish)
