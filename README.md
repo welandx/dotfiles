@@ -59,3 +59,10 @@ for further information: [vim cheatsheet](https://vim.rtorr.com/lang/zh_cn)
 |`w`,`e`,`b`|move cursor by words|
 |`K`|show keyword help|
 |`$`,`0`|line head and end|
+
+## awesome
+
+fork from ayamir/dotfiles
+
+add a start sh and modify some keymap;
+split one file to servral moudles
