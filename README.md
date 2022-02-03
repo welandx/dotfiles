@@ -4,13 +4,17 @@
 
 [中文版](./README_cn.md)
 
-<!-- TOC GFM -->
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
 
-* [zsh](#zsh)
-* [doom emacs](#doom-emacs)
-* [vimrc](#vimrc)
+- [dotfiles](#dotfiles)
+- [zsh](#zsh)
+- [doom emacs](#doom-emacs)
+- [vimrc](#vimrc)
+- [awesome](#awesome)
 
-<!-- /TOC -->
+<!-- markdown-toc end -->
+
 
 ## zsh
 - use ohmyzsh and some plugins

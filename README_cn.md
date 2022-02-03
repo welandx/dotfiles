@@ -3,16 +3,18 @@
 > weland Linux 配置文件
 
 
-<!-- vim-markdown-toc GFM -->
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
 
-* [zshrc](#zshrc)
-* [vimrc](#vimrc)
-    * [auto complete](#auto-complete)
-    * [tabline](#tabline)
-    * [文件树](#文件树)
-    * [markdown-toc](#markdown-toc)
+- [dotfiles](#dotfiles)
+- [zshrc](#zshrc)
+- [vimrc](#vimrc)
+- [auto complete](#auto-complete)
+- [tabline](#tabline)
+- [文件树](#文件树)
+- [markdown-toc](#markdown-toc)
 
-<!-- vim-markdown-toc -->
+<!-- markdown-toc end -->
 
 ## zshrc
 
