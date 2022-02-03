@@ -22,11 +22,13 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
+(setq doom-font (font-spec :family "Sarasa Mono SC Nerd" :size 18)
+      doom-unicode-font (font-spec :family "Sarasa Mono SC Nerd" :size 18))
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-acario-light)
 
+(setq doom-theme 'modus-vivendi)
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
@@ -54,6 +56,19 @@
 ;; they are implemented.
 
 ;;;;input
+
+
+(use-package rime
+  :custom
+  (default-input-method "rime")
+  :config
+  (setq rime-show-candidate 'posframe)
+  (setq rime-disable-predicates
+        '(rime-predicate-after-alphabet-char-p
+          rime-predicate-current-input-punctuation-p
+          rime-predicate-space-after-cc-p
+          rime-predicate-current-uppercase-letter-p
+          rime-predicate-tex-math-or-command-p)))
 ;;(use-package rime
 ;;  :init
 ;;  (setq rime-disable-predicates
@@ -80,7 +95,16 @@
 ;;
 ;;
 ;;;;APP
+
 ;;;;telega
+
+(use-package telega
+  :commands (telega)
+  :defer t
+  :config
+  (setq telega-server-libs-prefix "/usr")
+  (telega-notifications-mode t)
+  (telega-mode-line-mode 1))
 ;;(use-package! telega
 ;;  :bind ("C-c t" . #'telega)
 ;;  :init (setq telega-proxies
@@ -127,38 +151,6 @@
 ;;(use-package! eaf-pdf-viewer)
 ;;
 
-(use-package rime
-  :custom
-  (default-input-method "rime")
-  :config
-  (setq rime-show-candidate 'posframe)
-  (setq rime-disable-predicates
-        '(rime-predicate-after-alphabet-char-p
-          rime-predicate-current-input-punctuation-p
-          rime-predicate-space-after-cc-p
-          rime-predicate-current-uppercase-letter-p
-          rime-predicate-tex-math-or-command-p)))
-
-;;(use-package xenops
-;; :hook (org-mode . xenops-mode))
-
-(use-package org-roam
-  :config
-  (setq org-roam-directory (file-truename "~/org")))
-
-(use-package keyfreq
-  :init
-  (keyfreq-mode 1)
-  (keyfreq-autosave-mode 1)
-  :config
-  (setq keyfreq-excluded-commands
-      '(self-insert-command
-        evil-next-line
-        evil-previous-line
-        mwheel-scroll
-        evil-forward-char
-        evil-backward-char)))
-
 (use-package eaf
   :load-path "~/.emacs.d/site-lisp/emacs-application-framework" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
   :custom
@@ -190,6 +182,28 @@
             (_  (kbd "SPC")))
         (kbd "SPC"))))
 
+;;(use-package xenops
+;; :hook (org-mode . xenops-mode))
+
+;;org-mode
+(use-package org-roam
+  :config
+  (setq org-roam-directory (file-truename "~/org")))
+
+(use-package keyfreq
+  :init
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1)
+  :config
+  (setq keyfreq-excluded-commands
+      '(self-insert-command
+        evil-next-line
+        evil-previous-line
+        mwheel-scroll
+        evil-forward-char
+        evil-backward-char)))
+
+
 (use-package xenops
   :config
   (setq xenops-math-image-scale-factor 2.0))
@@ -211,10 +225,6 @@
 ;;(use-package! dirvish)
 ;;(setq default-frame-alist '(alpha-background . 80))
 
-(use-package telega
-  :commands (telega)
-  :defer t
-  :config
-  (setq telega-server-libs-prefix "/usr")
-  (telega-notifications-mode t)
-  (telega-mode-line-mode 1))
+
+;;ui
+(push '(alpha-background . 80) default-frame-alist)
